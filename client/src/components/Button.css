@@ -1,0 +1,18 @@
+.button {
+    color: white;
+    width: 70px;
+    height: 25px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;   
+}
+
+.clearButton {
+    background: #283637;
+}
+
+.addButton {
+    background: #f88f4d ;
+   
+}

@@ -1,0 +1,14 @@
+.todoDisplay {
+    bottom: 0;
+    height: 70%;
+    overflow-y: auto;
+    font-family: 'Poppins', sans-serif;
+
+    text-align: center;
+    
+     
+}
+
+.lable{
+    font-size: small;
+}

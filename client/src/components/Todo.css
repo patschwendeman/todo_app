@@ -1,0 +1,46 @@
+.controll {
+    display: flex;
+    position: relative;
+    visibility: hidden;
+    height: 40px;
+    align-items: center;
+}
+
+.todo button {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+
+}
+
+.todo:hover .controll {
+    visibility: visible;
+}
+
+.icon_button {
+    margin-left: 2px;
+    margin-right: 2px;    
+}
+
+.todo {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    margin: 5px 0 5px 0;
+    justify-content: space-between;
+    font-family: 'Poppins', sans-serif;  
+}
+
+.todoOpen {
+    background-color: #f88f4d;   
+}
+
+.todoDone {    
+    background-color: #283637;  
+}
+

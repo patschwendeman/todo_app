@@ -1,0 +1,14 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "json database for todo app, server side",
+  "main": "index.js",
+  "scripts": {
+    "server": "json-server --watch db.json --port 8000"
+  },
+  "author": "Patrick Schwendemann",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.0"
+  }
+}
