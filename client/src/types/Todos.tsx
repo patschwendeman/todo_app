@@ -1,3 +1,4 @@
+//define interface 
 interface Todos  {
     
     id: string
@@ -6,4 +7,5 @@ interface Todos  {
     time: number
 }
 
+//export interface
 export type { Todos };

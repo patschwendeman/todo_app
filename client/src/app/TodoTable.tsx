@@ -1,11 +1,15 @@
+//import modules
 import { FunctionComponent, ReactElement, ChangeEvent, MouseEvent, useState, useEffect } from 'react';
 import axios from 'axios';
+//import components
 import { InputBar } from './InputBar';
 import { TodosDisplay } from './TodoDisplay';
 import { Todos } from '../types/Todos';
 import { v4 } from 'uuid';
-import './TodoTable.css';
+//import stylesheets
+import '../styles/TodoTable.css';
 
+//define endpoint for database
 const endpoint = 'http://localhost:8000';
 
 
@@ -19,6 +23,7 @@ const TodoTable: FunctionComponent = (): ReactElement => {
     //Get Todos from DB
     const fetchTodos = async() => {
         const { data, status } = await axios.get(endpoint + '/todos?_sort=time&_order=desc');
+        //check statuscode
         if(status > 199 && status < 300){
             setTodos(data);            
         }
@@ -39,6 +44,7 @@ const TodoTable: FunctionComponent = (): ReactElement => {
             axios.delete(endpoint + '/todos/' + element.id);
             
         });
+        //check statuscode
         if(status > 199 && status < 300){
             fetchTodos();
         }
@@ -59,7 +65,7 @@ const TodoTable: FunctionComponent = (): ReactElement => {
 
 
         const { status } = await axios.post(endpoint + '/todos', newTodo);
-
+        //check statuscode
         if(status > 199 && status < 300){
             fetchTodos();
         }
@@ -73,7 +79,7 @@ const TodoTable: FunctionComponent = (): ReactElement => {
         const id = eventTodo.id;
         
         const { status } = await axios.delete(endpoint + '/todos/' + id);
-
+        //check statuscode
         if(status > 199 && status < 300){
             fetchTodos();
         }  
@@ -82,12 +88,12 @@ const TodoTable: FunctionComponent = (): ReactElement => {
 
     //Status handler
     const handleStatus = async (MouseEvent: MouseEvent ,eventTodo: Todos) => {
-        
+        //check status of todo
         const newStatus = eventTodo.done === true ? false : true;
         const id = eventTodo.id;
         
         const { status } = await axios.patch(endpoint + '/todos/' + id, {"done": newStatus});
-
+        //check statuscode
         if(status > 199 && status < 300){
             fetchTodos();
         }
@@ -119,4 +125,5 @@ const TodoTable: FunctionComponent = (): ReactElement => {
     );
 }
 
+//export component
 export { TodoTable };

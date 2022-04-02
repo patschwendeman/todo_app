@@ -1,9 +1,12 @@
+//import modules
 import { FunctionComponent, ReactElement, MouseEvent } from 'react';
+//import components
 import { Todo } from '../components/Todo';
 import { Todos } from '../types/Todos';
-import './TodoDisplay.css'
+//import stylesheets
+import '../styles/TodoDisplay.css'
 
-
+//define interface
 interface TodosDisplayProps {
     todos: Array<Todos>,
     handleDeleteTodo: (event: MouseEvent, todo: Todos) => void,
@@ -60,4 +63,5 @@ const TodosDisplay: FunctionComponent<TodosDisplayProps> = ({ todos, handleDelet
     );
 }
 
+//export component
 export { TodosDisplay };

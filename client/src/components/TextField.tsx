@@ -1,7 +1,9 @@
+//import modules
 import { FunctionComponent, ReactElement, ChangeEventHandler } from 'react';
-import './TextField.css';
+//import stylesheets
+import '../styles/TextField.css';
 
-
+//define interface
 interface TextFieldProps {
     value: string,
     onChange: ChangeEventHandler
@@ -20,4 +22,5 @@ const TextField: FunctionComponent<TextFieldProps> = ({ value, onChange }): Reac
     );
 }
 
+//export component
 export { TextField };

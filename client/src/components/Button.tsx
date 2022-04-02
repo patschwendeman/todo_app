@@ -1,8 +1,10 @@
+//import modules
 import { FunctionComponent, ReactElement, MouseEventHandler } from 'react';
-import './Button.css';
-import './ButtonClear.css';
+//import stylesheets
+import '../styles/Button.css';
+import '../styles/ButtonClear.css';
 
-
+//define interface
 interface ButtonProps {
     lable: string,
     disabled: boolean,
@@ -24,4 +26,5 @@ const Button: FunctionComponent<ButtonProps> = ({ lable, disabled, onClick}): Re
     );
 }
 
+//export component
 export { Button };

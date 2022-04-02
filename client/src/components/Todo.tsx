@@ -1,8 +1,11 @@
+//import modules
 import { FunctionComponent, ReactElement, MouseEvent } from "react";
+//import components
 import { Todos } from '../types/Todos';
-import './Todo.css';
+//import stylesheets
+import '../styles/Todo.css';
 
-
+//define interface
 interface TodoProps {
     
     todos: Array<Todos>
@@ -36,4 +39,5 @@ const Todo: FunctionComponent<TodoProps> = ({ todos, handleDeleteTodo, handleSta
     );
 }
 
+//export component
 export { Todo };
