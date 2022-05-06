@@ -1,15 +1,11 @@
-//import modules
 import { FunctionComponent, ReactElement, ChangeEvent, MouseEvent, useState, useEffect } from 'react';
 import axios from 'axios';
-//import components
 import { InputBar } from './InputBar';
 import { TodosDisplay } from './TodoDisplay';
 import { Todos } from '../types/Todos';
 import { v4 } from 'uuid';
-//import stylesheets
-import '../styles/TodoTable.css';
+import './TodoTable.css';
 
-//define endpoint for database
 const endpoint = 'http://localhost:8000';
 
 
@@ -22,8 +18,7 @@ const TodoTable: FunctionComponent = (): ReactElement => {
 
     //Get Todos from DB
     const fetchTodos = async() => {
-        const { data, status } = await axios.get(endpoint + '/todos?_sort=time&_order=desc');
-        //check statuscode
+        const { data, status } = await axios.get(endpoint + '/read');
         if(status > 199 && status < 300){
             setTodos(data);            
         }
@@ -39,12 +34,8 @@ const TodoTable: FunctionComponent = (): ReactElement => {
     //Clear Todo handler
     const handleClearTodos = async() => {
         
-        const { data, status } = await axios.get(endpoint + '/todos?done=true');
-        data.forEach((element: Todos) => {
-            axios.delete(endpoint + '/todos/' + element.id);
-            
-        });
-        //check statuscode
+        const { data, status } = await axios.delete(endpoint + '/clear');
+        
         if(status > 199 && status < 300){
             fetchTodos();
         }
@@ -57,15 +48,15 @@ const TodoTable: FunctionComponent = (): ReactElement => {
         //Create new Todo
         const newTodo = {
             
-            id: v4(),
+            _id: v4(),
             describtion: enterTodo,
             done: false,
             time: Date.now()
         };
 
 
-        const { status } = await axios.post(endpoint + '/todos', newTodo);
-        //check statuscode
+        const { status } = await axios.post(endpoint + '/add', newTodo);
+
         if(status > 199 && status < 300){
             fetchTodos();
         }
@@ -76,10 +67,10 @@ const TodoTable: FunctionComponent = (): ReactElement => {
     //Delete Todod handler
     const handleDeleteTodo = async (MouseEvent: MouseEvent ,eventTodo: Todos) => {
         
-        const id = eventTodo.id;
+        const _id = eventTodo._id;
         
-        const { status } = await axios.delete(endpoint + '/todos/' + id);
-        //check statuscode
+        const { status } = await axios.delete(endpoint + '/delete/' + _id);
+
         if(status > 199 && status < 300){
             fetchTodos();
         }  
@@ -88,12 +79,13 @@ const TodoTable: FunctionComponent = (): ReactElement => {
 
     //Status handler
     const handleStatus = async (MouseEvent: MouseEvent ,eventTodo: Todos) => {
-        //check status of todo
-        const newStatus = eventTodo.done === true ? false : true;
-        const id = eventTodo.id;
         
-        const { status } = await axios.patch(endpoint + '/todos/' + id, {"done": newStatus});
-        //check statuscode
+        const newStatus = eventTodo.done === true ? false : true;
+        
+        const _id = eventTodo._id;
+        
+        const { status } = await axios.patch(endpoint + '/update/' + _id, {done: newStatus});
+
         if(status > 199 && status < 300){
             fetchTodos();
         }
@@ -125,5 +117,4 @@ const TodoTable: FunctionComponent = (): ReactElement => {
     );
 }
 
-//export component
 export { TodoTable };

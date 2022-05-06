@@ -1,12 +1,9 @@
-//import modules
 import { FunctionComponent, ReactElement, MouseEvent } from 'react';
-//import components
 import { Todo } from '../components/Todo';
 import { Todos } from '../types/Todos';
-//import stylesheets
-import '../styles/TodoDisplay.css'
+import './TodoDisplay.css'
 
-//define interface
+
 interface TodosDisplayProps {
     todos: Array<Todos>,
     handleDeleteTodo: (event: MouseEvent, todo: Todos) => void,
@@ -14,7 +11,8 @@ interface TodosDisplayProps {
 }
 
 
-const TodosDisplay: FunctionComponent<TodosDisplayProps> = ({ todos, handleDeleteTodo, handleStatus }): ReactElement => {    
+const TodosDisplay: FunctionComponent<TodosDisplayProps> = ({ todos, handleDeleteTodo, handleStatus }): ReactElement => {   
+   
     return(
         <>
             <div className="todoDisplay">
@@ -27,7 +25,7 @@ const TodosDisplay: FunctionComponent<TodosDisplayProps> = ({ todos, handleDelet
                         
                         return(
                             <Todo
-                                key={ todos[index].id.toString() }  
+                                key={ todos[index]._id.toString() }  
                                 todos={ todos } 
                                 handleDeleteTodo={ handleDeleteTodo } 
                                 handleStatus={ handleStatus} 
@@ -47,7 +45,7 @@ const TodosDisplay: FunctionComponent<TodosDisplayProps> = ({ todos, handleDelet
                                          
                         return(
                             <Todo
-                                key={ todos[index].id.toString() } 
+                                key={ todos[index]._id.toString() } 
                                 todos={ todos } 
                                 handleDeleteTodo={ handleDeleteTodo } 
                                 handleStatus={ handleStatus} 
@@ -63,5 +61,4 @@ const TodosDisplay: FunctionComponent<TodosDisplayProps> = ({ todos, handleDelet
     );
 }
 
-//export component
 export { TodosDisplay };

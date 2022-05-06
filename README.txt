@@ -44,8 +44,8 @@ button deletes the Todo.
 -------------------------------------------------------------------------------
 
 #Server
-The server side contains a provisional rest api backend that connects to a json database. 
-This provisional backend will be replaced by a fully-fledged node express backend.
+The server side contains a NodeJS api backend that connects to a MongoDB database. 
+
 
 
 

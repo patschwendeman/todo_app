@@ -1,11 +1,8 @@
-//import modules
 import { FunctionComponent, ReactElement, MouseEvent } from "react";
-//import components
 import { Todos } from '../types/Todos';
-//import stylesheets
-import '../styles/Todo.css';
+import './Todo.css';
 
-//define interface
+
 interface TodoProps {
     
     todos: Array<Todos>
@@ -19,7 +16,7 @@ interface TodoProps {
 const Todo: FunctionComponent<TodoProps> = ({ todos, handleDeleteTodo, handleStatus, index, className }): ReactElement => {
     return(
         <> 
-            <div className= {className} key={ todos[index].id.toString() }>
+            <div className= {className} key={ todos[index]._id.toString() }>
 
                 <p className="describtion">{todos[index].describtion}</p>
                 <div className="controll">
@@ -39,5 +36,4 @@ const Todo: FunctionComponent<TodoProps> = ({ todos, handleDeleteTodo, handleSta
     );
 }
 
-//export component
 export { Todo };

@@ -1,12 +1,9 @@
-//import modules
 import { FunctionComponent, ReactElement, MouseEventHandler, ChangeEventHandler } from 'react';
-//import components
 import { Button } from '../components/Button';
 import { TextField } from '../components/TextField';
-//import stylesheets
-import '../styles/InputBar.css';
+import './InputBar.css';
 
-//define interface
+
 interface InputBarProps {
     enterTodo: string,
     handleEnterTodo:  ChangeEventHandler,
@@ -30,5 +27,4 @@ const InputBar: FunctionComponent<InputBarProps> = ({ enterTodo, handleEnterTodo
     );
 }
 
-//export component
 export { InputBar };

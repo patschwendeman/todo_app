@@ -1,7 +1,6 @@
-//import modules
+
 import { TodoTable } from './TodoTable';
-//import stylesheets
-import '../styles/App.css';
+import './App.css';
 
 
 const App = () => {
@@ -14,6 +13,5 @@ const App = () => {
   );
 }
 
-//export App
 export { App };
 
