@@ -1,7 +1,7 @@
 import { FunctionComponent, ReactElement, MouseEvent } from 'react';
 import { Todo } from '../components/Todo';
 import { Todos } from '../types/Todos';
-import './TodoDisplay.css'
+import '../styles/TodoDisplay.css'
 
 
 interface TodosDisplayProps {

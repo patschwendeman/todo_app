@@ -1,6 +1,6 @@
 import { FunctionComponent, ReactElement, MouseEvent } from "react";
 import { Todos } from '../types/Todos';
-import './Todo.css';
+import '../styles/Todo.css';
 
 
 interface TodoProps {

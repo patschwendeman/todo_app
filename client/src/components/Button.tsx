@@ -1,6 +1,6 @@
 import { FunctionComponent, ReactElement, MouseEventHandler } from 'react';
-import './Button.css';
-import './ButtonClear.css';
+import '../styles/Button.css';
+import '../styles/ButtonClear.css';
 
 
 interface ButtonProps {

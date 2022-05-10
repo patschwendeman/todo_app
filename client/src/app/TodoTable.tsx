@@ -4,7 +4,7 @@ import { InputBar } from './InputBar';
 import { TodosDisplay } from './TodoDisplay';
 import { Todos } from '../types/Todos';
 import { v4 } from 'uuid';
-import './TodoTable.css';
+import '../styles/TodoTable.css';
 
 const endpoint = 'http://localhost:8000';
 

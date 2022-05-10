@@ -1,6 +1,6 @@
 
 import { TodoTable } from './TodoTable';
-import './App.css';
+import '../styles/App.css';
 
 
 const App = () => {

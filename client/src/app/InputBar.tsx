@@ -1,7 +1,7 @@
 import { FunctionComponent, ReactElement, MouseEventHandler, ChangeEventHandler } from 'react';
 import { Button } from '../components/Button';
 import { TextField } from '../components/TextField';
-import './InputBar.css';
+import '../styles/InputBar.css';
 
 
 interface InputBarProps {
